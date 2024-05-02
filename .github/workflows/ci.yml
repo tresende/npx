@@ -23,7 +23,7 @@ jobs:
       run: npm run build
 
     - name: Login to NPM
-      run: npm login --registry=https://registry.npmjs.org/ --scope=@your_scope --always-auth false
+      run: npm login --registry=https://registry.npmjs.org/ --always-auth false
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
