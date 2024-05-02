@@ -3,6 +3,10 @@
   "version": "1.0.1",
   "description": "Run npx tresende",
   "main": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tresende/npx.git"
+  },
   "engines": {
     "node": ">=20"
   },
