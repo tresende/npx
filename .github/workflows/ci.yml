@@ -22,6 +22,12 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Login to NPM
+      run: npm login --registry=https://registry.npmjs.org/ --scope=@your_scope --always-auth false
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
