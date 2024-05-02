@@ -9,9 +9,12 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "dev": "tsx watch src/index.ts",
-    "build": "tsc -p .",
+    "build": "tsc -p . && echo \"$(echo '#!/usr/bin/env node'; cat ./dist/index.js)\" > ./dist/index.js",
     "format": "yarn prettier --write .",
     "lint": "eslint . --ext .ts"
+  },
+  "bin": {
+    "tresende": "./dist/index.js"
   },
   "private": true,
   "license": "ISC",
