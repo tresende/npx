@@ -1,6 +1,6 @@
 {
   "name": "tresende",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Run npx tresende",
   "main": "src/index.ts",
   "repository": {
