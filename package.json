@@ -1,6 +1,6 @@
 {
   "name": "tresende",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run npx tresende",
   "main": "src/index.ts",
   "engines": {
@@ -16,7 +16,6 @@
   "bin": {
     "tresende": "./dist/index.js"
   },
-  "private": true,
   "license": "ISC",
   "dependencies": {
     "tsx": "4.7.1",
