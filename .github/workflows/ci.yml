@@ -22,11 +22,13 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Login to NPM
-      run: npm login --registry=https://registry.npmjs.org/ --always-auth false
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Authenticate with private NPM package
+      run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
+    - name: Configure Git
+      run: |
+        git config --global user.email "thiago.gcresende@gmail.com"
+        git config --global user.name "Thiago Resende"
 
     - name: Release
       env:
