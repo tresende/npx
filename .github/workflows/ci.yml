@@ -22,16 +22,25 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Authenticate with private NPM package
-      run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-
     - name: Configure Git
       run: |
         git config --global user.email "thiago.gcresende@gmail.com"
         git config --global user.name "Thiago Resende"
 
-    - name: Release
+    - name: Authenticate with private NPM package
+      run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+    - name: Release NPM
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npx release-it --no-git.requireCleanWorkingDir --ci
+
+    - name: Authenticate with private github package
+      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+
+    - name: Release NPM
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: npx release-it --no-git.requireCleanWorkingDir --ci
