@@ -1,6 +1,6 @@
 {
   "name": "tresende",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Run npx tresende",
   "author": "Thiago Resende <thiago.gcresende@gmail.com> (https://thiagoresende.com/)",
   "main": "src/index.ts",
